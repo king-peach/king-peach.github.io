@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SSH连接git远程仓库 | King-peach</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="记录一些平时遇到的问题和技术难点">
+    
+    <link rel="preload" href="/assets/css/0.styles.5cc29924.css" as="style"><link rel="preload" href="/assets/js/app.e4cbe0ad.js" as="script"><link rel="preload" href="/assets/js/26.58159373.js" as="script"><link rel="preload" href="/assets/js/1.297c7cf7.js" as="script"><link rel="preload" href="/assets/js/4.c7f21514.js" as="script"><link rel="prefetch" href="/assets/js/10.5e77034d.js"><link rel="prefetch" href="/assets/js/11.b5e52617.js"><link rel="prefetch" href="/assets/js/12.e606bb39.js"><link rel="prefetch" href="/assets/js/13.5658aad4.js"><link rel="prefetch" href="/assets/js/14.4f22d05f.js"><link rel="prefetch" href="/assets/js/15.77a4ae07.js"><link rel="prefetch" href="/assets/js/16.37c163db.js"><link rel="prefetch" href="/assets/js/17.cae1447f.js"><link rel="prefetch" href="/assets/js/18.e5ce87b6.js"><link rel="prefetch" href="/assets/js/19.0b166866.js"><link rel="prefetch" href="/assets/js/20.fb1850aa.js"><link rel="prefetch" href="/assets/js/21.2997a3f3.js"><link rel="prefetch" href="/assets/js/22.0b836d61.js"><link rel="prefetch" href="/assets/js/23.6982e296.js"><link rel="prefetch" href="/assets/js/24.54312ba1.js"><link rel="prefetch" href="/assets/js/25.26abe02d.js"><link rel="prefetch" href="/assets/js/27.f9457610.js"><link rel="prefetch" href="/assets/js/28.f3873e75.js"><link rel="prefetch" href="/assets/js/29.da7a0da2.js"><link rel="prefetch" href="/assets/js/3.f4742b08.js"><link rel="prefetch" href="/assets/js/30.8da771a8.js"><link rel="prefetch" href="/assets/js/31.b5b7fd08.js"><link rel="prefetch" href="/assets/js/32.2a3ed388.js"><link rel="prefetch" href="/assets/js/33.d69d7cf2.js"><link rel="prefetch" href="/assets/js/34.e9d4f82a.js"><link rel="prefetch" href="/assets/js/35.b066942b.js"><link rel="prefetch" href="/assets/js/36.dd2852de.js"><link rel="prefetch" href="/assets/js/37.a55f022e.js"><link rel="prefetch" href="/assets/js/38.f9c9c15c.js"><link rel="prefetch" href="/assets/js/39.2fe56c0f.js"><link rel="prefetch" href="/assets/js/40.b2a7aa95.js"><link rel="prefetch" href="/assets/js/41.406997a5.js"><link rel="prefetch" href="/assets/js/42.73cabace.js"><link rel="prefetch" href="/assets/js/43.c391d67d.js"><link rel="prefetch" href="/assets/js/44.cfa42cbd.js"><link rel="prefetch" href="/assets/js/45.0eb52eac.js"><link rel="prefetch" href="/assets/js/46.95ff2b96.js"><link rel="prefetch" href="/assets/js/47.f766527d.js"><link rel="prefetch" href="/assets/js/48.4dac8b69.js"><link rel="prefetch" href="/assets/js/49.f65c572e.js"><link rel="prefetch" href="/assets/js/5.6cf2bb4c.js"><link rel="prefetch" href="/assets/js/6.7729b2aa.js"><link rel="prefetch" href="/assets/js/7.a778d25a.js"><link rel="prefetch" href="/assets/js/8.5b1b1b9e.js"><link rel="prefetch" href="/assets/js/9.692124a1.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5cc29924.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">King-peach</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web前端" class="dropdown-title"><span class="title">Web前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web前端" class="mobile-dropdown-title"><span class="title">Web前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/html&amp;css/" class="nav-link">
+  HTML+CSS
+</a></li><li class="dropdown-item"><!----> <a href="/web/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/web/browser/" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/web/engineering/" class="nav-link">
+  前端工程化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Flutter" class="dropdown-title"><span class="title">Flutter</span> <span class="arrow down"></span></button> <button type="button" aria-label="Flutter" class="mobile-dropdown-title"><span class="title">Flutter</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/flutter/start.html" class="nav-link">
+  花上几个小时学习Dart，为Flutter打好基础
+</a></li></ul></div></div><div class="nav-item"><a href="/personal/" class="nav-link">
+  关于我的
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Web前端" class="dropdown-title"><span class="title">Web前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="Web前端" class="mobile-dropdown-title"><span class="title">Web前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/html&amp;css/" class="nav-link">
+  HTML+CSS
+</a></li><li class="dropdown-item"><!----> <a href="/web/javascript/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/web/browser/" class="nav-link">
+  浏览器
+</a></li><li class="dropdown-item"><!----> <a href="/web/engineering/" class="nav-link">
+  前端工程化
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Flutter" class="dropdown-title"><span class="title">Flutter</span> <span class="arrow down"></span></button> <button type="button" aria-label="Flutter" class="mobile-dropdown-title"><span class="title">Flutter</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/flutter/start.html" class="nav-link">
+  花上几个小时学习Dart，为Flutter打好基础
+</a></li></ul></div></div><div class="nav-item"><a href="/personal/" class="nav-link">
+  关于我的
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Javascript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML+CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>浏览器</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>前端工程化</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/1970/01/01/engineering/" class="sidebar-link">前端工程化是什么？</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/1970/01/01/engineering/#前端工程化的演进" class="sidebar-link">前端工程化的演进</a></li></ul></li><li><a href="/1970/01/01/commit-rule/" class="sidebar-link">前端工作流之commit规范及其配置</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/1970/01/01/commit-rule/#为啥要规范git-commit-规范" class="sidebar-link">为啥要规范git commit 规范?</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/commit-rule/#需要的工具及介绍" class="sidebar-link">需要的工具及介绍</a></li></ul></li><li><a href="/1970/01/01/zaozaoliao-devops/" class="sidebar-link">早早聊之如何基于Node做DevOps实践视频总结</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/1970/01/01/zaozaoliao-devops/#devops使用的意义" class="sidebar-link">DevOps使用的意义</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/zaozaoliao-devops/#devops定义" class="sidebar-link">DevOps定义</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/zaozaoliao-devops/#node在devops作用" class="sidebar-link">Node在DevOps作用</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/zaozaoliao-devops/#工具推荐" class="sidebar-link">工具推荐</a></li></ul></li><li><a href="/1970/01/01/build-person-blob/" class="sidebar-link">CentOS + Git + Hexo搭建个人博客</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#原理" class="sidebar-link">原理</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#所需技术介绍" class="sidebar-link">所需技术介绍</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#前期准备工作" class="sidebar-link">前期准备工作</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#详细搭建流程" class="sidebar-link">详细搭建流程</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#服务器部署-并克隆拉取git项目" class="sidebar-link">服务器部署，并克隆拉取Git项目</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/build-person-blob/#总结" class="sidebar-link">总结</a></li></ul></li><li><a href="/1970/01/01/ssh-connect-git/" aria-current="page" class="active sidebar-link">SSH连接git远程仓库</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/1970/01/01/ssh-connect-git/#ssh身份验证过程" class="sidebar-link">SSH身份验证过程</a></li><li class="sidebar-sub-header"><a href="/1970/01/01/ssh-connect-git/#总结" class="sidebar-link">总结</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="ssh连接git远程仓库"><a href="#ssh连接git远程仓库" class="header-anchor">#</a> SSH连接git远程仓库</h1> <p>首先说下SSH是个啥，为啥要用SSH连接git远程仓库
+SSH是一个应用层的通讯协议，类似与http，也就是在客户端和服务端之间建立会话，用来传输文件和信息。</p> <p>SSH是一种非对称加密的通讯协议，非对称加密的发送和接收需要使用两个密钥，这两个密钥是关联的，一个叫做公钥（Public Key）， 一个叫做私钥（Private Key）
+公钥可以共享给其他人，仅仅持有公钥是无法到处私钥的。SSH从安全性和性能两方面综合考虑，结合使用了Public Key和Secure Key</p> <p>Public Key：非对称加密，安全，但效率低，不适合大规模进行数据的加密和解密操作.</p> <blockquote><p>SSH在一下几个节点采用了非对称加密，首先是一开始建立用于连接的对称加密时的密钥对称过程(Key exchange)；其次是广为人知的SSH身份验证过程.SSH密钥对用于让服务器验证一个客户端的身份.密钥对在客户端上生成，其中的公钥上传至远程服务器，保存在～/.authorized_keys的文件里.</p></blockquote> <p>Secret Key：对称解密，高效，但安全性相对较低，Key的分发尤其方便
+SSH使用对称密钥为整个连接过程加密</p> <h2 id="ssh身份验证过程"><a href="#ssh身份验证过程" class="header-anchor">#</a> SSH身份验证过程</h2> <p>SSH连接git远程仓库也就是进行SSH身份验证。首先要在客户端生成一个SSH密钥，步骤如下：</p> <ol><li>打开终端进去用户主目录，查看是否存在.ssh文件，如果存在，进入.ssh文件下查看是否存在id_rsa和id_rsa.pub文件。查看方法如下图所示：</li></ol> <p><img src="/assets/img/img-1.5f03cfe4.png" alt="image.png"></p> <p>图1-1</p> <p>如果存在以上情况则直接进入下一步，如果不存在则需要创建SSH Key：</p> <blockquote><p>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</p></blockquote> <p>上述的youremial@example.com是填你自己的邮箱，别按照例子来哦，回车一个回遇到一个选项，接着回车，连续三次回车以后不出意外会生成一个密钥如下图所示：</p> <p><img src="/assets/img/img-2.4a7f5752.png" alt="image.png">
+图1-2</p> <p>如果生成类似这个界面，那恭喜你的SSH密钥就生成成功了，再使用图1-1中的命令进行查看，确保已经生成。
+其中id_rsa是私钥不能泄露出去，id_rsa.pub是公钥可以随便使用，git远程仓库也是需要这个公钥.</p> <ol start="2"><li>进入id_rsa.pub将你的公钥copy下来，后面要用，集体操作如下图所示：
+允许命令：vim ~/.ssh/id_rsa.pub，就可以看到公钥了，copy下来</li></ol> <p><img src="/assets/img/img-3.c31dd246.png" alt="image.png">
+图1-3</p> <p>输入命令<code>:wq</code>退出此界面</p> <ol start="3"><li>登录github，添加SSH密钥信息
+如果没有github账户的话，注册一个就行了，然后登录github，进去以后，主界面有个小头像，点击一下，如下图所示：</li></ol> <p><img src="/assets/img/img-4.09366960.png" alt="image.png">
+图1-4</p> <p>进入设置界面，然后点击侧边了的SSH and GPF Keys，进入如下界面，点击New SSH Key，新建一个SSH
+密钥，如下图所示：</p> <p><img src="/assets/img/img-5.1e90b69b.png" alt="image.png">
+图1-5</p> <p>点击新建SSH以后会进入如下界面，把放copy下来的公钥复制进去，随意设置一个名字保存就行了。</p> <p><img src="/assets/img/img-6.44e28c4b.png" alt="image.png">
+图1-6
+保存以后会叫你输入git账号的密码进行确认，输入你的密码就行了：</p> <p><img src="/assets/img/img-7.363aea33.png" alt="image.png">
+图1-7</p> <p>确认密码以后就进入了SSH的列表页，里面存在你之前新增的SSH就说明成功了，如下图所示：</p> <p><img src="/assets/img/img-8.076fbf7f.png" alt="image.png">
+图1-8</p> <p>到这里我们进完成了git远程仓库和本地仓库的SSH连接了，接下来就可以随意进行git操作了。</p> <h2 id="总结"><a href="#总结" class="header-anchor">#</a> 总结</h2> <p>其实github会提供两种协议用来传输代码，一种是http协议，另一种是SSH，我们为什么要用SSH呢，因为SSH更安全，而且在服务器上进行git操作，如果用http拷贝代码下来，每次push和pull都要输入用户名和密码，这是件很麻烦的事，也占用了我们的时间。对于攻城狮来说，避免重复劳动是件很爽的事。
+有个小细节，我之前没注意，这里记录一下～～～</p> <p><img src="/assets/img/img-9.13d4c7d0.png" alt="image.png">
+图1-9
+如图1-9中，点击这个Use HTTPS和Use SSH下面就会输出对应的地址。方便用户进行copy。
+这篇文章主要是针对linux用户来的，window的操作跟这个类似，可能有些命令不太一样，等下次有时间再去操作一下😁</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">更新时间:</span> <span class="time">12/15/2021, 6:30:13 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/1970/01/01/build-person-blob/" class="prev">
+        CentOS + Git + Hexo搭建个人博客
+      </a></span> <!----></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.e4cbe0ad.js" defer></script><script src="/assets/js/26.58159373.js" defer></script><script src="/assets/js/1.297c7cf7.js" defer></script><script src="/assets/js/4.c7f21514.js" defer></script>
+  </body>
+</html>
